@@ -1,0 +1,16 @@
+{
+  "name": "Analyze-it",
+  "description": "Opens various page analytic tools - SEO, CMS, & WHOIS information for any page you visit. timothytocci.com",
+  "version": "0.8",
+  "permissions": ["contextMenus"],
+  "background": {
+    "scripts": ["app.js"]
+  },
+  "icons" : {
+		"16" : "peopleicon16.png",
+		"32" : "peopleicon32.png",
+		"48" : "peopleicon48.png",
+		"128" : "peopleicon128.png"
+	},
+  "manifest_version": 2
+}
