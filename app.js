@@ -129,13 +129,6 @@ function duckFootprint(i, t){
 /**
  * No Submenu menu items
  */
-//chrome.contextMenus.create({"title": "Internic WHOIS", "contexts":["page"], "parentId": hp, "onclick": whoisIt});
-//function whoisIt(i, t){
-//	var url = t.url;
-//	var host = getDomain(url);
-//	var createProperties = {url: "http://reports.internic.net/cgi/whois?whois_nic=" + encodeURIComponent(host) + "&type=domain"};
-//	chrome.tabs.create(createProperties);
-//}
 
 chrome.contextMenus.create({"title": "Chinese Firewall", "contexts":["page"], "parentId": hp, "onclick": chinaFirewall});
 function chinaFirewall(i, t){
