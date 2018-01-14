@@ -96,7 +96,7 @@ function vdnsPortScan(i, t){
 /**
  * SE Footprints menu items
  */
-var sef = chrome.contextMenus.create({"title": "SE Footprints", "contexts":["page"], "parentId": hp});
+var sef = chrome.contextMenus.create({"title": "Search Engine Footprints", "contexts":["page"], "parentId": hp});
 chrome.contextMenus.create({"title": "Google Footprint", "contexts":["page"], "parentId": sef, "onclick": googleFootprint});
 function googleFootprint(i, t){
 	var url = t.url;
@@ -111,17 +111,31 @@ function bingFootprint(i, t){
 	var createProperties = {url: "http://www.bing.com/search?q=site%3A" + encodeURIComponent(host)};
 	chrome.tabs.create(createProperties);
 }
+chrome.contextMenus.create({"title": "Yahoo Footprint", "contexts":["page"], "parentId": sef, "onclick": yahooFootprint});
+function yahooFootprint(i, t){
+	var url = t.url;
+	var host = getDomain(url);
+	var createProperties = {url: "https://search.yahoo.com/search?p=site%3A" + encodeURIComponent(host)};
+	chrome.tabs.create(createProperties);
+}
+chrome.contextMenus.create({"title": "Duck Duck Go Footprint", "contexts":["page"], "parentId": sef, "onclick": duckFootprint});
+function duckFootprint(i, t){
+	var url = t.url;
+	var host = getDomain(url);
+	var createProperties = {url: "https://duckduckgo.com/?q=site%3A" + encodeURIComponent(host)};
+	chrome.tabs.create(createProperties);
+}
 
 /**
  * No Submenu menu items
  */
-chrome.contextMenus.create({"title": "Internic WHOIS", "contexts":["page"], "parentId": hp, "onclick": whoisIt});
-function whoisIt(i, t){
-	var url = t.url;
-	var host = getDomain(url);
-	var createProperties = {url: "http://reports.internic.net/cgi/whois?whois_nic=" + encodeURIComponent(host) + "&type=domain"};
-	chrome.tabs.create(createProperties);
-}
+//chrome.contextMenus.create({"title": "Internic WHOIS", "contexts":["page"], "parentId": hp, "onclick": whoisIt});
+//function whoisIt(i, t){
+//	var url = t.url;
+//	var host = getDomain(url);
+//	var createProperties = {url: "http://reports.internic.net/cgi/whois?whois_nic=" + encodeURIComponent(host) + "&type=domain"};
+//	chrome.tabs.create(createProperties);
+//}
 
 chrome.contextMenus.create({"title": "Chinese Firewall", "contexts":["page"], "parentId": hp, "onclick": chinaFirewall});
 function chinaFirewall(i, t){
