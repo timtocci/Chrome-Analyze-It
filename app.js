@@ -17,7 +17,6 @@ function guessIt(i, t){
 	chrome.tabs.create(createProperties);
 }
 
-
 /**
  * viewdns.info menu items
  */
